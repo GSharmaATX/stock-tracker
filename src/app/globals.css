@@ -120,6 +120,50 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased transition-colors duration-300;
+  }
+  a {
+    @apply transition-colors hover:text-primary;
+  }
+  header nav a {
+    @apply rounded-md px-2 py-1 hover:bg-accent hover:text-accent-foreground;
+  }
+  ::selection {
+    background: var(--primary);
+    color: var(--primary-foreground);
+  }
+}
+
+@layer components {
+  /* Subtle card elevation on hover */
+  [data-slot="card"] {
+    @apply transition-shadow;
+  }
+  [data-slot="card"]:hover {
+    @apply shadow-md;
+  }
+
+  /* Table styling refinements */
+  table {
+    @apply border-collapse;
+  }
+  thead th {
+    @apply text-xs uppercase tracking-wide text-muted-foreground;
+  }
+  tbody tr {
+    @apply transition-colors;
+  }
+  tbody tr:hover {
+    @apply bg-accent/40;
+  }
+
+  /* Card title tighten */
+  [data-slot="card-title"] {
+    @apply tracking-tight;
+  }
+
+  /* Sticky header backdrop refinement */
+  header {
+    @apply supports-[backdrop-filter]:backdrop-blur-md supports-[backdrop-filter]:bg-white/80 dark:supports-[backdrop-filter]:bg-gray-900/80;
   }
 }
