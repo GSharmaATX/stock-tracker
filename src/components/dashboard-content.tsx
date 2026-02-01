@@ -80,7 +80,7 @@ export function DashboardContent() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-stone-100">
       <AppHeader
         email={email}
         onLogout={handleLogout}
